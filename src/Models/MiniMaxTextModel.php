@@ -18,7 +18,7 @@ use Generator;
 
 final class MiniMaxTextModel extends BaseModel implements TextModelInterface
 {
-    private const array CAPABILITIES = [Capability::TextGeneration, Capability::Streaming, Capability::ToolCalling, Capability::StructuredOutput, Capability::Reasoning, Capability::TextInput, Capability::ImageInput, Capability::VideoInput];
+    private const array CAPABILITIES = [Capability::TextGeneration, Capability::Streaming, Capability::ToolCalling, Capability::StructuredOutput, Capability::Reasoning, Capability::TextInput, Capability::ImageInput];
     public function __construct(private readonly string $modelId, private readonly MiniMaxOptions $options) {}
     public function provider(): string
     {

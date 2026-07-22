@@ -15,4 +15,4 @@ $result = Generate::text('Write a concise release note.')
     ->run();
 ```
 
-This package uses MiniMax's official OpenAI-compatible `/v1/chat/completions` API. It supports text and streaming generation, tool calling, structured output, reasoning, and MiniMax M3 image/video input. See [MiniMax API docs](https://platform.minimax.io/docs/guides/text-generation) and [PHP AI SDK documentation](https://phpaisdk.com/docs/minimax).
+This package uses MiniMax's official OpenAI-compatible `/v1/chat/completions` API. It supports text and streaming generation, tool calling, structured output, reasoning, and image input. MiniMax also documents video input, which is not exposed until the shared OpenAI-compatible message converter can encode `video_url` parts. See [MiniMax API docs](https://platform.minimax.io/docs/guides/text-generation) and [PHP AI SDK documentation](https://phpaisdk.com/docs/minimax).
