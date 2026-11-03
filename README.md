@@ -1,52 +1,34 @@
-# aisdk/minimax
+# PHP AI SDK — MiniMax
 
-Official MiniMax provider for the PHP AI SDK. Uses MiniMax's OpenAI-compatible Chat Completions API.
+Text generation, streaming, reasoning, and tool calling with MiniMax. Part of the framework-agnostic [PHP AI SDK](https://phpaisdk.com).
+
+## Installation
 
 ```bash
 composer require aisdk/minimax
 ```
 
-## Basic Usage
+Set `MINIMAX_API_KEY` in your environment.
+
+## Usage
 
 ```php
 use AiSdk\Generate;
 use AiSdk\MiniMax;
 
-MiniMax::create(['apiKey' => $_ENV['MINIMAX_API_KEY']]);
-
-$result = Generate::text('Write a concise release note.')
-    ->model(MiniMax::model('MiniMax-M3'))
+$result = Generate::text('Explain closures in PHP in one sentence.')
+    ->model(MiniMax::model('MiniMax-M3.1-Flash'))
     ->run();
+
+echo $result->text;
 ```
-
-## Configuration
-
-| Variable | Description | Default |
-| --- | --- | --- |
-| `MINIMAX_API_KEY` | API key for authentication | Required |
-| `MINIMAX_BASE_URL` | Chat Completions API root | `https://api.minimax.io/v1` |
-
-```php
-MiniMax::create([
-    'apiKey' => $_ENV['MINIMAX_API_KEY'],
-    'baseUrl' => 'https://api.minimax.io/v1',
-]);
-```
-
-## Supported Capabilities
-
-| Capability | Support |
-| --- | --- |
-| Text generation and streaming | Native OpenAI-compatible chat |
-| Tool calling and structured output | Passed through for supported models |
-| Reasoning and image input | Passed through for supported models |
-| Video input | Not exposed by the shared message converter yet |
-
-## Provider Options
-
-Use `providerOptions('minimax', ['raw' => [...]])` to send documented MiniMax chat-completions fields outside the portable SDK surface. Model IDs are opaque strings and remain validated by MiniMax.
 
 ## Documentation
 
-- [MiniMax API documentation](https://platform.minimax.io/docs/guides/text-generation)
-- [PHP AI SDK documentation](https://phpaisdk.com/docs/minimax)
+[Read the documentation](https://phpaisdk.com/docs/0.x/providers/minimax) for configuration, supported features, and more examples.
+
+[Contributing](https://github.com/phpaisdk/.github/blob/main/CONTRIBUTING.md) · [Support](https://github.com/phpaisdk/.github/blob/main/SUPPORT.md)
+
+## License
+
+The MIT License (MIT). See [LICENSE](LICENSE) for details.
